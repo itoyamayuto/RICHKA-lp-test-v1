@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リチカクラウド LP FV - 全パターンショーケース</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=M+PLUS+Rounded+1c:wght@700&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@400;700&family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-palette="richka">
+
+<!-- Scroll progress bar -->
+<div class="lp-progress" id="lp-progress" aria-hidden="true"></div>
+
+<!-- ============================================
+     Palette Navigation (upper)
+     ============================================ -->
+<nav class="palette-nav" aria-label="カラーパレット切り替え">
+  <div class="palette-nav__inner" role="tablist">
+    <button class="palette-nav__tab is-active" data-palette="richka" role="tab" aria-selected="true"><span class="palette-nav__swatch" style="background:#ff6450"></span>リチカ</button>
+    <button class="palette-nav__tab" data-palette="trust" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#1a2744"></span>信頼・権威</button>
+    <button class="palette-nav__tab" data-palette="safe" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#2b5797"></span>安心</button>
+    <button class="palette-nav__tab" data-palette="pop" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#e8344e"></span>ポップ</button>
+    <button class="palette-nav__tab" data-palette="luxury" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#d4af37"></span>高級</button>
+    <button class="palette-nav__tab" data-palette="coral" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#ff6450"></span>コーラル</button>
+    <button class="palette-nav__tab" data-palette="urgent" role="tab" aria-selected="false"><span class="palette-nav__swatch" style="background:#cc0000"></span>緊急</button>
+  </div>
+</nav>
+
+<!-- ============================================
+     Pattern Navigation (lower)
+     ============================================ -->
+<nav class="showcase-nav" aria-label="パターン切り替え">
+  <div class="showcase-nav__inner" role="tablist">
+    <button class="showcase-nav__tab is-active" data-pattern="a" role="tab" aria-selected="true">A: 権威KV</button>
+    <button class="showcase-nav__tab" data-pattern="b" role="tab" aria-selected="false">B: 共感</button>
+    <button class="showcase-nav__tab" data-pattern="c" role="tab" aria-selected="false">C: ブランド</button>
+    <button class="showcase-nav__tab" data-pattern="d" role="tab" aria-selected="false">D: フルビジュアル</button>
+    <button class="showcase-nav__tab" data-pattern="e" role="tab" aria-selected="false">E: ビフォーアフター</button>
+    <button class="showcase-nav__tab" data-pattern="f" role="tab" aria-selected="false">F: 数字</button>
+    <button class="showcase-nav__tab" data-pattern="g" role="tab" aria-selected="false">G: エディトリアル</button>
+    <button class="showcase-nav__tab" data-pattern="h" role="tab" aria-selected="false">H: 商品×感情</button>
+    <button class="showcase-nav__tab" data-pattern="i" role="tab" aria-selected="false">I: マルチシーン</button>
+    <button class="showcase-nav__tab" data-pattern="j" role="tab" aria-selected="false">J: アート</button>
+  </div>
+</nav>
+
+<!-- ============================================
+     Pattern A: 権威KV型
+     コーラル × 断言→根拠型
+     代表写真を権威として配置
+     ============================================ -->
+<section class="hero hero--a" id="pattern-a" role="tabpanel">
+  <div class="hero__inner">
+    <!-- ヘッダーバー -->
+    <div class="hero-a__header js-fade-in" data-delay="0">
+      <div class="hero-a__header-left">
+        <img src="リチカ情報/logotype_black.webp" alt="RICHKA Cloud Studio" width="120" height="24" class="hero__logo">
+      </div>
+      <a href="#" class="hero-a__header-link">資料請求はこちら →</a>
+    </div>
+
+    <!-- 上部: コピー + PC画像（右側に大きく表示） -->
+    <div class="hero-a__top">
+      <!-- PC画像（右側・背景的に） -->
+      <div class="hero-a__pc-visual js-scale-in" data-delay="100">
+        <img src="リチカ情報/hero_image.KL8R_fkw.webp" alt="" aria-hidden="true"
+          class="hero-a__pc-img" data-skip-bg-remove="true" loading="eager" fetchpriority="high" width="800" height="500">
+        <div class="hero-a__pc-overlay"></div>
+      </div>
+
+      <!-- コピー（前面・左側） -->
+      <div class="hero-a__copy-col">
+        <span class="hero-a__label-badge js-fade-in" data-delay="50">AI MARKETING SYSTEM</span>
+        <p class="hero-a__sub-lead js-fade-in" data-delay="100">
+          2,000社の支援ノウハウを搭載した<br>AIマーケティングシステム
+        </p>
+        <h1 class="hero-a__main-copy js-fade-in" data-delay="200">
+          <span class="hero-a__line1"><span class="marker-coral">広告制作</span>を、</span>
+          <span class="hero-a__line2">最短<span class="text-coral">10分</span>で</span>
+          <span class="hero-a__line3">内製化。</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- 下部: 説明文 + CTA（PC画像に被らないエリア） -->
+    <div class="hero-a__bottom">
+      <p class="hero-a__evidence js-fade-in" data-delay="350">
+        ペルソナ作成、広告コピー生成、クリエイティブ制作まで<br>
+        <span class="dotted-underline">誰でも簡単に一気通貫</span>で実行できます。
+      </p>
+      <div class="hero-a__cta-area js-fade-in" data-delay="450">
+        <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+        <span class="hero__cta-micro">30秒で完了・営業連絡なし</span>
+      </div>
+    </div>
+
+    <!-- バッジ -->
+    <div class="hero__badge-row js-fade-in" data-delay="550">
+      <span class="hero__badge"><span class="hero__badge-accent"></span>2,000社の支援実績</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>最短10分で制作</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>200,000本超のノウハウ</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern B: 共感ストーリー型
+     安心ブルー × 問いかけ→解決型
+     ============================================ -->
+<section class="hero hero--b" id="pattern-b" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__tags js-fade-in" data-delay="0">
+      <span class="tag-badge">広告運用</span>
+      <span class="tag-badge">クリエイティブ制作</span>
+      <span class="tag-badge">内製化</span>
+    </div>
+
+    <div class="hero__empathy-copy js-fade-in" data-delay="150">
+      マーケティング業務、やること多すぎて大変...<br>
+      <span class="question"><span class="marker-coral">AIを使ったけど品質が悪い</span><br>そう感じていませんか？</span>
+    </div>
+
+    <div class="hero__product-visual js-scale-in" data-delay="300">
+      <img src="リチカ情報/hero_image.KL8R_fkw.webp"
+        alt="リチカクラウド管理画面" loading="lazy" width="800" height="500">
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="450">
+      <a href="#" class="hero__cta hero__cta--ribbon">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="500">3分でわかるリチカクラウドの全貌</p>
+
+    <p class="hero__reassurance js-fade-in" data-delay="550">
+      リチカは<span class="dotted-underline">2,000社のプロの制作ノウハウ</span>を搭載。<br>
+      一般的なAIとは違う、<strong class="text-coral">実用レベル</strong>のアウトプットを実現します。
+    </p>
+
+    <div class="hero__badge-row js-fade-in" data-delay="650">
+      <span class="hero__badge"><span class="hero__badge-accent"></span>2,000社の実績</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>ICCサミット入賞</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>東洋経済選出</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern C: セレブリティ/ブランド型
+     ポップ・コーラル × 世界観→ブランド型
+     ============================================ -->
+<section class="hero hero--c" id="pattern-c" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__collab js-fade-in" data-delay="0">
+      AI MARKETING SYSTEM
+    </div>
+
+    <div class="hero__celebrity-photo-wrap js-fade-in" data-delay="100">
+      <img class="hero__celebrity-photo js-scale-in" data-delay="150"
+        src="リチカ情報/代表写真.webp"
+        alt="リチカ代表" loading="lazy" width="400" height="533">
+      <div class="hero__deco-circle hero__deco-circle--1"></div>
+      <div class="hero__deco-circle hero__deco-circle--2"></div>
+      <div class="hero__deco-dot hero__deco-dot--1"></div>
+      <div class="hero__deco-dot hero__deco-dot--2"></div>
+      <div class="hero__deco-dot hero__deco-dot--3"></div>
+    </div>
+
+    <div class="hero__campaign-title js-fade-in" data-delay="300">
+      <span class="en">RICHKA CLOUD STUDIO</span>
+      <span class="ja"><span class="text-accent">広告制作</span>を<br>もっと自由に</span>
+    </div>
+
+    <p class="hero__brand-message js-fade-in" data-delay="450">
+      プロのノウハウ × AIの力で、<br>
+      <span class="marker-coral">誰でも10分</span>で広告を内製化。<br>
+      あなたのマーケティングを、次のステージへ。
+    </p>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="550">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="600">2,000社が選んだAIマーケティングツール</p>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern D: フルビジュアル・ダーク型
+     ダーク×コーラル × 季節/イベント型
+     ============================================ -->
+<section class="hero hero--d" id="pattern-d" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__fullbleed">
+      <img src="リチカ情報/スクリーンショット 2026-03-19 15.01.17.png"
+        alt="広告クリエイティブ作例" loading="eager" width="800" height="450">
+      <div class="hero__fullbleed-overlay"></div>
+    </div>
+
+    <div class="particle-container" id="particle-container"></div>
+
+    <div class="hero__content-d">
+      <img class="hero__logo-d js-fade-in" data-delay="100"
+        src="リチカ情報/logotype_black.webp" alt="RICHKA" width="120" height="24">
+
+      <h1 class="hero__title-ja js-fade-in" data-delay="300">
+        <span class="coral">広告制作</span>を、<br>最短10分で内製化。
+      </h1>
+
+      <p class="hero__sub-d js-fade-in" data-delay="500">
+        2,000社の支援ノウハウを搭載した<br>AIマーケティングシステム。
+      </p>
+
+      <div class="hero__cta-wrap js-fade-in" data-delay="600">
+        <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+      </div>
+
+      <div class="hero__badge-row js-fade-in" data-delay="700">
+        <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>2,000社実績</span>
+        <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>最短10分</span>
+        <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>200,000本超</span>
+      </div>
+
+      <div class="hero__scroll-indicator js-fade-in" data-delay="800">
+        <span>SCROLL</span>
+        <div class="hero__scroll-arrow"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern E: ビフォーアフター型
+     コーラル温もり × ビフォーアフター型
+     ============================================ -->
+<section class="hero hero--e" id="pattern-e" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__problems-section">
+      <p class="hero__problems-title js-fade-in" data-delay="0">こんなお悩みありませんか？</p>
+      <ul class="hero__problem-list">
+        <li class="hero__problem-item js-fade-in" data-delay="100"><svg class="hero__check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 広告制作の外注コストが高い</li>
+        <li class="hero__problem-item js-fade-in" data-delay="200"><svg class="hero__check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 社内に専門人材がいない</li>
+        <li class="hero__problem-item js-fade-in" data-delay="300"><svg class="hero__check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> AIを使ったが品質が悪い</li>
+      </ul>
+    </div>
+
+    <div class="hero__arrow-divider js-fade-in" data-delay="400" aria-hidden="true"><svg class="hero__arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+
+    <div class="hero__solution-section">
+      <div>
+        <h1 class="hero__solution-copy js-fade-in" data-delay="500">
+          <span class="huge"><span class="marker-coral">10分</span></span>
+          <span class="mid">で<span class="text-coral">内製化</span>できる。</span>
+        </h1>
+        <p class="hero__solution-sub js-fade-in" data-delay="600">
+          2,000社のプロのノウハウを搭載した<br>
+          <span class="dotted-underline">AIマーケティングシステム</span>で、<br>
+          広告制作を劇的に変える。
+        </p>
+      </div>
+      <div class="hero__photo-e js-scale-in" data-delay="500">
+        <img src="リチカ情報/hero_image.KL8R_fkw.webp"
+          alt="リチカクラウド" loading="lazy" width="800" height="500">
+      </div>
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="700">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="750">外注費75万円→リチカなら30万円〜</p>
+
+    <div class="hero__badge-row js-fade-in" data-delay="800">
+      <span class="hero__badge"><span class="hero__badge-accent"></span>コスト60%削減</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>3営業日→10分</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>問合せ6.4倍事例</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern F: 数字インパクト型
+     緊急×コーラル × 数字ファースト型
+     ============================================ -->
+<section class="hero hero--f" id="pattern-f" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__logo-f js-fade-in" data-delay="0">
+      <img src="リチカ情報/logotype_black.webp" alt="RICHKA" width="120" height="24">
+    </div>
+
+    <div class="hero__number-area">
+      <div class="hero__number js-fade-in" data-delay="150">
+        <span class="js-counter" data-target="2000">0</span><span class="unit">社</span>
+      </div>
+      <div class="hero__number-label js-fade-in" data-delay="300">
+        <span class="marker-coral">支援実績</span>
+      </div>
+    </div>
+
+    <p class="hero__desc-f js-fade-in" data-delay="400">
+      <span class="text-coral">最短10分</span>で広告制作を内製化。<br>
+      プロのノウハウを搭載したAIマーケティングシステム。
+    </p>
+
+    <div class="hero__photo-f js-scale-in" data-delay="450">
+      <img src="リチカ情報/hero_image.KL8R_fkw.webp"
+        alt="リチカクラウド管理画面" loading="lazy" width="800" height="500">
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="550">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="600">LIXIL・東急・小学館など大手企業が導入</p>
+
+    <div class="hero__badge-row js-fade-in" data-delay="650">
+      <span class="hero__badge"><span class="hero__badge-accent"></span>最短10分で制作</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>200,000本超ノウハウ</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>ICCサミット受賞</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern G: エディトリアル型
+     ダーク×コーラル × 世界観→ブランド型
+     ============================================ -->
+<section class="hero hero--g" id="pattern-g" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__giant-text js-fade-in" data-delay="0">RICHKA CLOUD</div>
+
+    <div class="hero__editorial-content">
+      <div class="hero__editorial-left js-fade-in" data-delay="200">
+        <div class="hero__coral-badge">
+          <span class="num">AI</span>
+          <span>搭載</span>
+        </div>
+        <span class="hero-g__company">株式会社リチカ</span>
+      </div>
+
+      <div class="hero__photo-g-wrap js-scale-in" data-delay="300">
+        <img class="hero__photo-g"
+          src="リチカ情報/hero_image.KL8R_fkw.webp"
+          alt="リチカクラウド" loading="lazy" width="800" height="500">
+        <div class="hero__geo-shape hero__geo-shape--circle"></div>
+        <div class="hero__geo-shape hero__geo-shape--triangle"></div>
+      </div>
+
+      <div class="hero__vertical-copy-g js-fade-in" data-delay="500">
+        <span class="coral">広告制作</span>を<br>最短十分で内製化
+      </div>
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="650">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+
+    <div class="hero__badge-row js-fade-in" data-delay="750">
+      <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>2,000社実績</span>
+      <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>最短10分</span>
+      <span class="hero__badge hero__badge--dark"><span class="hero__badge-accent"></span>200,000本超</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern H: 商品×感情訴求型
+     コーラル温もり × 問いかけ→解決型
+     ============================================ -->
+<section class="hero hero--h" id="pattern-h" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero-h__logo-wrap">
+      <img src="リチカ情報/logotype_black.webp" alt="RICHKA" width="120" height="22"
+        class="hero-h__logo js-fade-in" data-delay="0">
+    </div>
+
+    <div class="hero__h-layout">
+      <div class="hero__emotion-photo-wrap js-scale-in" data-delay="100">
+        <img class="hero__emotion-photo"
+          src="リチカ情報/代表写真.webp"
+          alt="リチカ代表" loading="lazy" width="400" height="533">
+      </div>
+
+      <div class="hero__vertical-copy-h js-fade-in" data-delay="300">
+        <span class="accent">広告制作</span>を<br>もっと簡単に
+      </div>
+    </div>
+
+    <div class="hero__speech-bubble js-fade-in" data-delay="420">
+      独自プロンプトで<span class="text-coral">実用レベル</span>のAIアウトプットを実現
+    </div>
+
+    <div class="hero__product-area js-fade-in" data-delay="500" style="justify-content:center;">
+      <img class="hero__product-img"
+        src="リチカ情報/hero_image.KL8R_fkw.webp"
+        alt="リチカクラウド管理画面" loading="lazy" width="800" height="500">
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="600">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="650">デザイン未経験でもプロ品質</p>
+
+    <div class="hero__badge-row js-fade-in" data-delay="700">
+      <span class="hero__badge"><span class="hero__badge-accent"></span>AI搭載</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>2,000社実績</span>
+      <span class="hero__badge"><span class="hero__badge-accent"></span>成果フォーマット</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern I: マルチシーン型
+     コーラル × ビフォーアフター型
+     ============================================ -->
+<section class="hero hero--i" id="pattern-i" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__logo-i js-fade-in" data-delay="0">
+      <img src="リチカ情報/logotype_black.webp" alt="RICHKA Cloud Studio" width="120" height="24">
+    </div>
+
+    <div class="hero__scenes">
+      <img class="hero__scene-photo hero__scene-photo--left js-scale-in" data-delay="100"
+        src="リチカ情報/スクリーンショット 2026-03-18 9.42.10.png"
+        alt="運用型クリエイティブ" loading="lazy" width="600" height="300">
+      <div class="hero__multi-copy js-fade-in" data-delay="250">
+        <span class="line line--1">広告制作を</span>
+        <span class="line line--2">AIの力で</span>
+        <span class="line line--3"><span class="marker-coral">内製化！</span></span>
+      </div>
+      <img class="hero__scene-photo hero__scene-photo--right js-scale-in" data-delay="350"
+        src="リチカ情報/スクリーンショット 2026-03-19 15.01.17.png"
+        alt="広告作例一覧" loading="lazy" width="800" height="450">
+    </div>
+
+    <p class="hero__follow-copy js-fade-in" data-delay="450">
+      外注コストが高い... 社内に人材がいない...<br>
+      <strong class="text-coral">最短10分</strong>でプロ品質の広告制作を実現。
+    </p>
+
+    <div class="hero__badge-row--starburst js-fade-in" data-delay="550">
+      <div class="hero__badge--starburst">2,000社<br><strong>導入</strong></div>
+      <div class="hero__badge--starburst">最短<br><strong>10分</strong></div>
+      <div class="hero__badge--starburst">コスト<br><strong>60%減</strong></div>
+    </div>
+
+    <div class="hero__cta-wrap js-fade-in" data-delay="650">
+      <a href="#" class="hero__cta">資料を無料でダウンロード</a>
+    </div>
+    <p class="hero__cta-micro js-fade-in" data-delay="700">LIXIL・東急・小学館など大手が導入</p>
+  </div>
+</section>
+
+<!-- ============================================
+     Pattern J: イラスト/アート型
+     ダーク×コーラル × 世界観型
+     ============================================ -->
+<section class="hero hero--j" id="pattern-j" role="tabpanel" style="display:none">
+  <div class="hero__inner">
+    <div class="hero__art-bg">
+      <div class="hero__art-shape hero__art-shape--1"></div>
+      <div class="hero__art-shape hero__art-shape--2"></div>
+      <div class="hero__art-shape hero__art-shape--3"></div>
+      <div class="hero__art-wave"></div>
+    </div>
+
+    <div class="hero__nav-j js-fade-in" data-delay="0">
+      <div class="hero__logo-j">
+        <img src="リチカ情報/logotype_black.webp" alt="RICHKA" width="120" height="24">
+      </div>
+      <div class="hero__hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="hero__content-j">
+      <h1 class="hero__main-copy-j js-fade-in" data-delay="300">
+        <span class="coral">クリエイティブ</span>の力で、<br>マーケティングを変える。
+      </h1>
+      <p class="hero__sub-j js-fade-in" data-delay="500">
+        2,000社の支援ノウハウをAIに搭載。<br>
+        ペルソナ作成からクリエイティブ制作まで、<br>
+        誰でも最短10分で実行できます。
+      </p>
+      <div class="hero__cta-wrap js-fade-in" data-delay="700">
+        <a href="#" class="hero__cta hero__cta--dark">資料を無料でダウンロード</a>
+      </div>
+      <p class="hero__cta-micro js-fade-in" data-delay="750" style="color:var(--richka-gray)">
+        30秒で完了・営業連絡なし
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     LP本体セクション（全パターン共通）
+     ============================================ -->
+<div id="lp-body">
+
+<!-- 課題セクション -->
+<section class="lp-section lp-pain">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">PROBLEM</p>
+    <h2 class="lp-section__heading js-scroll">マーケティング現場の<br><span class="accent">3つの壁</span></h2>
+    <div class="lp-pain__grid">
+      <div class="lp-pain__card js-scroll" data-stagger="1">
+        <div class="lp-pain__num">1</div>
+        <div>
+          <p class="lp-pain__title">外注コストが高すぎる</p>
+          <p class="lp-pain__desc">バナー1本の制作に数万円、動画なら数十万円。改善サイクルを回すほどコストが膨らむ。</p>
+        </div>
+      </div>
+      <div class="lp-pain__card js-scroll" data-stagger="2">
+        <div class="lp-pain__num">2</div>
+        <div>
+          <p class="lp-pain__title">内製したいが人材がいない</p>
+          <p class="lp-pain__desc">採用しても月90万円以上。副業人材に頼っても期待した品質が出ない。</p>
+        </div>
+      </div>
+      <div class="lp-pain__card js-scroll" data-stagger="3">
+        <div class="lp-pain__num">3</div>
+        <div>
+          <p class="lp-pain__title">AIを試したが品質が悪い</p>
+          <p class="lp-pain__desc">一般的な生成AIツールでは実務レベルのクリエイティブが作れず、結局使わなくなった。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ソリューションセクション -->
+<section class="lp-section lp-solution">
+  <div class="lp-section__inner">
+    <div class="lp-solution__arrow js-scroll" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+    <p class="lp-section__label js-scroll">SOLUTION</p>
+    <h2 class="lp-section__heading js-scroll">リチカクラウドが<br><span class="accent">すべて解決</span>します。</h2>
+
+    <!-- 操作デモGIF -->
+    <div class="lp-solution__demo js-scroll-scale">
+      <img src="リチカ情報/リチカクラウドの操作画面richkacloud.DszJ9wqp.gif"
+        alt="リチカクラウドの操作デモ — ペルソナ作成からクリエイティブ生成まで"
+        class="lp-solution__demo-img" loading="lazy" width="800" height="500">
+      <p class="lp-solution__demo-caption">誰でも直感的に操作できるインターフェース</p>
+    </div>
+
+    <div class="lp-solution__grid">
+      <div class="lp-solution__card js-scroll" data-stagger="1">
+        <div class="lp-solution__icon">AI</div>
+        <p class="lp-solution__card-title">独自AIで実用品質</p>
+        <p class="lp-solution__card-desc">2,000社のノウハウを搭載した独自プロンプトで、一般AIとは違う実用レベルのアウトプットを実現。</p>
+      </div>
+      <div class="lp-solution__card js-scroll" data-stagger="2">
+        <div class="lp-solution__icon">10<span class="lp-solution__icon-sub">分</span></div>
+        <p class="lp-solution__card-title">最短10分で制作完了</p>
+        <p class="lp-solution__card-desc">ペルソナ作成から広告コピー生成、クリエイティブ制作まで一気通貫。3営業日→10分に短縮。</p>
+      </div>
+      <div class="lp-solution__card js-scroll" data-stagger="3">
+        <div class="lp-solution__icon">Pro</div>
+        <p class="lp-solution__card-title">プロが伴走サポート</p>
+        <p class="lp-solution__card-desc">ツールだけ渡して終わりではない。広告代理店出身のプロ集団がオンボーディングから伴走。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 機能紹介セクション -->
+<section class="lp-section lp-features">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">FEATURES</p>
+    <h2 class="lp-section__heading js-scroll">広告内製化に必要な<span class="accent">すべて</span>が揃う</h2>
+
+    <!-- AI機能ビジュアル: SVG素材を活用 -->
+    <div class="lp-features__visual js-scroll-scale">
+      <div class="lp-features__visual-item">
+        <img src="リチカ情報/hero_info-1.RUlWnMXf.svg"
+          alt="AIペルソナ設定 — SNS運用を一元管理" loading="lazy" width="171" height="83">
+        <p class="lp-features__visual-label">AIがペルソナを自動設定</p>
+      </div>
+      <div class="lp-features__visual-item">
+        <img src="リチカ情報/hero_info-2.CHFBxEtp.svg"
+          alt="ペルソナ詳細 — サイコグラフィック・デモグラフィック情報" loading="lazy" width="171" height="83">
+        <p class="lp-features__visual-label">詳細なペルソナ情報を生成</p>
+      </div>
+    </div>
+
+    <div class="lp-features__grid">
+      <div class="lp-feature js-scroll" data-stagger="1">
+        <div class="lp-feature__icon">AI</div>
+        <div>
+          <p class="lp-feature__title">AIアシスト</p>
+          <p class="lp-feature__desc">ペルソナ作成・広告コピー・クリエイティブをAIが最短10分で生成</p>
+        </div>
+      </div>
+      <div class="lp-feature js-scroll" data-stagger="2">
+        <div class="lp-feature__icon">Edit</div>
+        <div>
+          <p class="lp-feature__title">エディター</p>
+          <p class="lp-feature__desc">動画・静止画バナーを直感的に制作できるクラウドエディタ</p>
+        </div>
+      </div>
+      <div class="lp-feature js-scroll" data-stagger="3">
+        <div class="lp-feature__icon">Vo</div>
+        <div>
+          <p class="lp-feature__title">AIナレーター</p>
+          <p class="lp-feature__desc">自然な音声をAIが自動生成。ナレーション付き動画をワンクリックで</p>
+        </div>
+      </div>
+      <div class="lp-feature js-scroll" data-stagger="4">
+        <div class="lp-feature__icon">TV</div>
+        <div>
+          <p class="lp-feature__title">TVer変換</p>
+          <p class="lp-feature__desc">TVer向け広告フォーマットにワンクリックで変換・配信</p>
+        </div>
+      </div>
+      <div class="lp-feature js-scroll" data-stagger="5">
+        <div class="lp-feature__icon">LP</div>
+        <div>
+          <p class="lp-feature__title">LP構成機能</p>
+          <p class="lp-feature__desc">ランディングページの構成・制作までカバー</p>
+        </div>
+      </div>
+      <div class="lp-feature js-scroll" data-stagger="6">
+        <div class="lp-feature__icon">FMT</div>
+        <div>
+          <p class="lp-feature__title">成果フォーマット</p>
+          <p class="lp-feature__desc">大手広告媒体と共同研究した「成果の出る」テンプレートを搭載</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 制作されるクリエイティブの例 -->
+    <div class="lp-features__showcase js-scroll-scale">
+      <p class="lp-features__showcase-label">こんなクリエイティブが作れます</p>
+      <img src="リチカ情報/スクリーンショット 2026-03-19 15.01.17.png"
+        alt="リチカクラウドで制作された広告クリエイティブの例"
+        class="lp-features__showcase-img" loading="lazy" width="800" height="450">
+    </div>
+  </div>
+</section>
+
+<!-- 数字で見るリチカ -->
+<section class="lp-section lp-numbers">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll" style="color:var(--richka-coral-light)">NUMBERS</p>
+    <h2 class="lp-section__heading js-scroll">数字で見る<span class="accent">リチカ</span></h2>
+    <div class="lp-numbers__grid">
+      <div class="lp-numbers__item js-scroll">
+        <div class="lp-numbers__value">2,000<span class="unit">社</span></div>
+        <p class="lp-numbers__label">支援実績</p>
+      </div>
+      <div class="lp-numbers__item js-scroll">
+        <div class="lp-numbers__value">10,000<span class="unit">本+</span></div>
+        <p class="lp-numbers__label">動画制作実績</p>
+      </div>
+      <div class="lp-numbers__item js-scroll">
+        <div class="lp-numbers__value">10<span class="unit">分</span></div>
+        <p class="lp-numbers__label">最短制作時間</p>
+      </div>
+      <div class="lp-numbers__item js-scroll">
+        <div class="lp-numbers__value">60<span class="unit">%</span></div>
+        <p class="lp-numbers__label">コスト削減</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 導入企業 -->
+<section class="lp-section lp-logos">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">CLIENTS</p>
+    <h2 class="lp-section__heading js-scroll"><span class="accent">大手企業</span>を含む2,000社が導入</h2>
+    <div class="lp-logos__grid js-scroll">
+      <span class="lp-logos__item">LIXIL</span>
+      <span class="lp-logos__item">東急</span>
+      <span class="lp-logos__item">小学館</span>
+      <span class="lp-logos__item">セブン銀行</span>
+      <span class="lp-logos__item">MORINAGA</span>
+      <span class="lp-logos__item">商船三井</span>
+      <span class="lp-logos__item">TAKARA TOMY</span>
+      <span class="lp-logos__item">CAMPFIRE</span>
+      <span class="lp-logos__item">DESCENTE</span>
+      <span class="lp-logos__item">ブックオフ</span>
+    </div>
+    <p class="lp-logos__note js-scroll">他多数の企業にご導入いただいています</p>
+  </div>
+</section>
+
+<!-- 導入事例 -->
+<section class="lp-section lp-cases">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">CASE STUDIES</p>
+    <h2 class="lp-section__heading js-scroll">導入企業の<span class="accent">成果</span></h2>
+    <div class="lp-cases__grid">
+      <div class="lp-case js-scroll">
+        <div class="lp-case__top">
+          <p class="lp-case__result">問い合わせ 6.4倍</p>
+        </div>
+        <div class="lp-case__body">
+          <p class="lp-case__company">不動産業界</p>
+          <p class="lp-case__desc">物件ページに動画を埋め込んだ結果、問い合わせが6.4倍に増加。成約リードタイムも40日短縮。</p>
+        </div>
+      </div>
+      <div class="lp-case js-scroll">
+        <div class="lp-case__top">
+          <p class="lp-case__result">CTR 10倍</p>
+        </div>
+        <div class="lp-case__body">
+          <p class="lp-case__company">Amazon広告</p>
+          <p class="lp-case__desc">スポンサーブランド動画広告でCTR10倍、CPA59.6%削減、ROAS1.22倍を達成。</p>
+        </div>
+      </div>
+      <div class="lp-case js-scroll">
+        <div class="lp-case__top">
+          <p class="lp-case__result">月数十本を内製化</p>
+        </div>
+        <div class="lp-case__body">
+          <p class="lp-case__company">大手リユース企業</p>
+          <p class="lp-case__desc">デザイン未経験のスタッフが、動画制作を完全内製化。月数十本の動画を安定的に制作。</p>
+        </div>
+      </div>
+      <div class="lp-case js-scroll">
+        <div class="lp-case__top">
+          <p class="lp-case__result">フォロワー 30万人増</p>
+        </div>
+        <div class="lp-case__body">
+          <p class="lp-case__company">LinkedIn活用</p>
+          <p class="lp-case__desc">1年でフォロワー30万人増。予算1/3で当初目標を達成。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PV動画セクション -->
+<section class="lp-section lp-video">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">MOVIE</p>
+    <h2 class="lp-section__heading js-scroll"><span class="accent">30秒</span>でわかるリチカクラウド</h2>
+    <div class="lp-video__wrap js-scroll">
+      <video class="lp-video__player" controls preload="metadata" poster="リチカ情報/hero_image.KL8R_fkw.webp" width="800" height="450">
+        <source src="リチカ情報/0613_RICHKA_PV_FIX (1).mp4" type="video/mp4">
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- 運用サイクルセクション -->
+<section class="lp-section lp-cycle">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">PDCA CYCLE</p>
+    <h2 class="lp-section__heading js-scroll">広告運用の<span class="accent">PDCAサイクル</span>を加速</h2>
+    <div class="lp-cycle__visual js-scroll">
+      <img src="リチカ情報/スクリーンショット 2026-03-18 9.42.10.png"
+        alt="運用型クリエイティブ — 企画・制作・配信・改善・検証設計のPDCAサイクル"
+        class="lp-cycle__img" loading="lazy" width="600" height="300">
+    </div>
+    <p class="lp-cycle__desc js-scroll">
+      企画→制作→配信→改善のサイクルを、リチカクラウドひとつで完結。<br>
+      現状分析・検証設計まで含めた運用型クリエイティブで、成果を最大化します。
+    </p>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="lp-section lp-reasons">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll">WHY RICHKA</p>
+    <h2 class="lp-section__heading js-scroll">リチカクラウドが<br><span class="accent">選ばれる理由</span></h2>
+    <div class="lp-reasons__grid" role="list">
+      <div class="lp-reason js-scroll" role="listitem">
+        <div>
+          <p class="lp-reason__title">10,000本の制作実績から生まれたツール</p>
+          <p class="lp-reason__desc">元CM制作会社のプロが、自社の課題解決のために開発。テック企業の「作ってみた」ツールとは根本が違う。</p>
+        </div>
+      </div>
+      <div class="lp-reason js-scroll" role="listitem">
+        <div>
+          <p class="lp-reason__title">大手媒体と共同研究した成果フォーマット</p>
+          <p class="lp-reason__desc">各広告媒体の成果データに基づきクリエイティブを研究開発。テンプレートに「勝ちパターン」が組み込まれている。</p>
+        </div>
+      </div>
+      <div class="lp-reason js-scroll" role="listitem">
+        <div>
+          <p class="lp-reason__title">SaaS × コンサルの両軸で確実に内製化</p>
+          <p class="lp-reason__desc">広告代理店出身・元マーケターで構成されるプロ集団が伴走。ツールを渡して終わりではない。</p>
+        </div>
+      </div>
+      <div class="lp-reason js-scroll" role="listitem">
+        <div>
+          <p class="lp-reason__title">ICCサミット入賞 / 東洋経済「すごいベンチャー」選出</p>
+          <p class="lp-reason__desc">第三者機関からの高い評価。デロイトトーマツの調査でも法人向け動画自動生成市場でポジションを確立。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 最終CTA -->
+<section class="lp-section lp-final-cta">
+  <div class="lp-section__inner">
+    <p class="lp-section__label js-scroll" style="color:rgba(255,255,255,0.6)">GET STARTED</p>
+    <h2 class="lp-section__heading js-scroll">広告制作を、<br><span style="font-size:1.15em">最短10分で内製化。</span></h2>
+    <p class="lp-final-cta__sub js-scroll">まずは3分でわかる資料をご覧ください。<br>導入事例・機能詳細・料金プランをまとめてお届けします。</p>
+    <div class="js-scroll">
+      <a href="#" class="lp-final-cta__btn">資料を無料でダウンロード</a>
+      <p class="lp-final-cta__micro">30秒で完了 / 営業連絡なし</p>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="lp-footer">
+  <img src="リチカ情報/logotype_black.webp" alt="RICHKA" width="120" height="24" class="lp-footer__logo">
+  <p>&copy; RICHKA, Inc. All rights reserved.</p>
+  <p style="margin-top:8px"><a href="#" style="color:var(--richka-gray);text-decoration:underline;font-size:11px">プライバシーポリシー</a> <span style="margin:0 8px;color:var(--richka-gray-light)">|</span> <a href="#" style="color:var(--richka-gray);text-decoration:underline;font-size:11px">特定商取引法に基づく表記</a></p>
+</footer>
+
+</div><!-- /lp-body -->
+
+<script src="main.js"></script>
+</body>
+</html>
