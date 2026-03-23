@@ -439,6 +439,7 @@ body[data-device="macbook"] .lp-progress {
 .palette-nav__inner {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
