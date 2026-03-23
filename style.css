@@ -4307,3 +4307,332 @@ body[data-palette="luxury"] .hero__cta { animation-name: ctaPulseLuxury; }
     width: 28%;
   }
 }
+
+/* ============================================
+   Round 3: FV Design Refinements (All Patterns)
+   ============================================ */
+
+/* --- R3: PC画像の白背景をCSSで透過（Canvas処理廃止） --- */
+.hero-a__pc-img,
+.hero--b .hero__product-visual img,
+.hero--e .hero__photo-e img,
+.hero--f .hero__photo-f img,
+.hero--g .hero__photo-g,
+.hero--h .hero__product-img {
+  mix-blend-mode: multiply;
+}
+
+/* bg-removed class no longer needed */
+img.bg-removed {
+  filter: none;
+  box-shadow: none;
+  mix-blend-mode: multiply;
+}
+
+/* --- R3-A: Pattern A 改善 --- */
+/* 1. ロゴサイズ拡大 */
+.hero-a__header .hero__logo {
+  height: 24px;
+}
+
+/* 2. ラベルバッジをauto幅に */
+.hero-a__label-badge {
+  width: auto;
+  max-width: none;
+}
+
+/* 3. バッジ行の間延び解消 */
+.hero--a .hero__badge-row {
+  padding-top: var(--space-sm);
+}
+
+.hero--a .hero__badge-row::before {
+  margin-bottom: var(--space-sm);
+}
+
+/* --- R3-B: Pattern B 改善 --- */
+/* 1. 引用符を控えめに */
+.hero--b .hero__empathy-copy::before {
+  font-size: clamp(60px, 15vw, 100px);
+  opacity: 0.6;
+}
+
+/* 2. リアシュアランスの配置調整 */
+.hero--b .hero__reassurance {
+  font-size: clamp(12px, 2.8vw, 15px);
+}
+
+/* 3. RICHKA CLOUDラベルを画像外に */
+.hero--b .hero__product-visual::after {
+  bottom: 8px;
+  font-size: 9px;
+  padding: 3px 12px;
+  opacity: 0.9;
+}
+
+/* 4. リボンCTAのclip-path調整 */
+.hero__cta--ribbon {
+  clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%);
+  padding: 16px 48px;
+}
+
+/* --- R3-C: Pattern C 改善 --- */
+/* 1. 写真サイズ縮小 */
+.hero--c .hero__celebrity-photo-wrap {
+  padding: var(--space-md) var(--space-lg);
+}
+
+.hero--c .hero__celebrity-photo {
+  width: 55%;
+  max-width: 240px;
+}
+
+/* 2. バッジ行追加用スペース確保 */
+.hero--c .hero__cta-micro {
+  margin-bottom: 0;
+}
+
+/* 3. ブランドメッセージを2行に収める */
+.hero--c .hero__brand-message {
+  font-size: clamp(13px, 2.8vw, 16px);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+/* 4. 装飾ドットのランダム化 */
+.hero--c .hero__deco-dot--1 { top: 18%; right: 15%; width: 16px; height: 16px; }
+.hero--c .hero__deco-dot--2 { bottom: 30%; left: 12%; width: 10px; height: 10px; }
+.hero--c .hero__deco-dot--3 { top: 55%; left: 6%; width: 7px; height: 7px; }
+
+/* 5. フェードオーバーレイ緩和 */
+.hero--c .hero__celebrity-photo-wrap::after {
+  height: 50%;
+}
+
+/* --- R3-D: Pattern D 改善 --- */
+/* 1. ロゴ下余白縮小 */
+.hero--d .hero__logo-d {
+  margin-bottom: var(--space-md);
+}
+
+/* 2. 背景画像の不透明度UP */
+.hero--d .hero__fullbleed img {
+  opacity: 0.35;
+}
+
+/* 3. SCROLLインジケーターの余白縮小 */
+.hero--d .hero__scroll-indicator {
+  margin-top: var(--space-md);
+}
+
+/* 4. content-d のパディング最適化 */
+.hero--d .hero__content-d {
+  padding: var(--space-xl) var(--space-lg);
+  gap: var(--space-sm);
+}
+
+/* 5. 装飾ラインを短く */
+.hero--d .hero__content-d::before {
+  height: 40px;
+  top: 12%;
+}
+
+/* --- R3-E: Pattern E 改善 --- */
+/* 1. ×アイコン拡大 */
+.hero--e .hero__check-icon {
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+}
+
+/* 2. 矢印ディバイダー余白縮小 */
+.hero--e .hero__arrow-divider {
+  padding: var(--space-sm) 0;
+}
+
+/* 3. コスト比較の絵文字をCSSアイコンに */
+.hero--e .hero__cta-wrap + .hero__cta-micro::before {
+  content: '↓';
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* --- R3-F: Pattern F 改善 --- */
+/* 1. 装飾円を薄く */
+.hero--f .hero__number-area::before {
+  border-width: 2px;
+  border-color: var(--richka-coral-pale, rgba(255,192,185,0.25));
+}
+
+.hero--f .hero__number-area::after {
+  border-color: var(--richka-coral-pale, rgba(255,192,185,0.15));
+}
+
+/* 2. ロゴ下に余白追加 */
+.hero--f .hero__logo-f {
+  padding-bottom: var(--space-sm);
+}
+
+/* 3. PC画像の比率縮小 */
+.hero--f .hero__photo-f img {
+  max-width: 360px;
+}
+
+/* 4. 「支援実績」マーカーを幅広に */
+.hero--f .hero__number-label .marker-coral {
+  padding: 0 8px;
+}
+
+/* --- R3-G: Pattern G 改善 --- */
+/* 1. ジャイアントテキストのストローク濃く */
+.hero--g .hero__giant-text {
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgba(255, 100, 80, 0.22);
+}
+
+/* 2. 六角形バッジのマージン追加 */
+.hero--g .hero__editorial-left {
+  padding-left: var(--space-md);
+}
+
+/* 3. キャプション拡大 */
+.hero--g .hero__photo-g-wrap::after {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  bottom: -20px;
+}
+
+/* 4. PC幅で幾何学シェイプ拡大 */
+@media (min-width: 768px) {
+  .hero--g .hero__geo-shape--circle {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    right: -30px;
+  }
+  .hero--g .hero__geo-shape--triangle {
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 75px solid var(--richka-coral-light);
+  }
+}
+
+/* --- R3-H: Pattern H 改善 --- */
+/* 1. 写真のアウトライン控えめに */
+.hero--h .hero__emotion-photo {
+  outline-width: 2px;
+  outline-offset: 4px;
+  outline-color: var(--richka-coral-pale, rgba(255,192,185,0.35));
+}
+
+/* 2. 管理画面ラベル削除（::afterを非表示） */
+.hero--h .hero__product-area::after {
+  display: none;
+}
+
+/* 3. 吹き出しとコピーの距離を縮小 */
+.hero--h .hero__speech-bubble {
+  margin-top: calc(-1 * var(--space-xs));
+}
+
+/* 4. ロゴサイズ拡大 */
+.hero-h__logo {
+  height: 26px;
+}
+
+/* --- R3-I: Pattern I 改善 --- */
+/* 1. マルチコピーのカード不透明度UP */
+.hero--i .hero__multi-copy {
+  background: rgba(255,255,255,0.85);
+}
+
+/* 2. スターバーストバッジの文字サイズ拡大 */
+.hero--i .hero__badge--starburst {
+  font-size: 13px;
+}
+
+.hero--i .hero__badge--starburst strong {
+  font-size: 1.3em;
+}
+
+/* 3. 装飾線を太く */
+.hero--i .hero__follow-copy::before {
+  width: 48px;
+  height: 3px;
+}
+
+/* 4. ロゴのボーダー削除 */
+.hero--i .hero__logo-i {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 5. 写真形状を統一（両方角丸） */
+.hero--i .hero__scene-photo--right {
+  border-radius: var(--radius-xl);
+}
+
+/* --- R3-J: Pattern J 改善 --- */
+/* 1. 上部余白縮小 */
+.hero--j .hero__content-j {
+  min-height: calc(100vh - var(--nav-height) - 140px);
+  padding-top: var(--space-lg);
+}
+
+/* 2. アートシェイプの不透明度UP */
+.hero--j .hero__art-shape {
+  opacity: 0.28;
+}
+
+/* 3. ハンバーガーのMENUラベル削除 */
+.hero--j .hero__hamburger::after {
+  display: none;
+}
+
+/* 4. CTA dark の文字色を白に */
+.hero__cta--dark {
+  color: #fff;
+}
+
+/* 5. グリッドを不規則なドットに */
+.hero--j .hero__art-bg::after {
+  background-image:
+    radial-gradient(rgba(255,100,80,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 6. バッジ行追加用（J用） */
+.hero--j .hero__content-j .hero__cta-wrap {
+  margin-top: var(--space-md);
+}
+
+/* --- R3: Dark palette fixes for mix-blend-mode --- */
+body[data-palette="trust"] .hero-a__pc-img,
+body[data-palette="luxury"] .hero-a__pc-img,
+body[data-palette="trust"] .hero--b .hero__product-visual img,
+body[data-palette="luxury"] .hero--b .hero__product-visual img,
+body[data-palette="trust"] .hero--e .hero__photo-e img,
+body[data-palette="luxury"] .hero--e .hero__photo-e img,
+body[data-palette="trust"] .hero--f .hero__photo-f img,
+body[data-palette="luxury"] .hero--f .hero__photo-f img,
+body[data-palette="trust"] .hero--g .hero__photo-g,
+body[data-palette="luxury"] .hero--g .hero__photo-g {
+  mix-blend-mode: screen;
+}
+
+/* Trust/Luxury: Pattern I multi-copy on dark */
+body[data-palette="trust"] .hero--i .hero__multi-copy {
+  background: rgba(15,25,35,0.9);
+}
+body[data-palette="luxury"] .hero--i .hero__multi-copy {
+  background: rgba(10,10,10,0.9);
+}
+
+/* Trust/Luxury: Pattern G text-stroke */
+body[data-palette="trust"] .hero--g .hero__giant-text {
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgba(196,162,101,0.2);
+}
+body[data-palette="luxury"] .hero--g .hero__giant-text {
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: rgba(212,175,55,0.15);
+}

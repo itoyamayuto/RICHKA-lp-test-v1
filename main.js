@@ -184,52 +184,8 @@
     }
   }
 
-  // --- Remove white background from PC mockup images ---
-  function removeWhiteBg(img) {
-    var canvas = document.createElement('canvas');
-    var ctx = canvas.getContext('2d');
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
-    ctx.drawImage(img, 0, 0);
-
-    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var data = imageData.data;
-    var threshold = 235;
-
-    for (var i = 0; i < data.length; i += 4) {
-      var r = data[i], g = data[i + 1], b = data[i + 2];
-      if (r > threshold && g > threshold && b > threshold) {
-        data[i + 3] = 0;
-      } else if (r > 210 && g > 210 && b > 210) {
-        var brightness = (r + g + b) / 3;
-        data[i + 3] = Math.round(255 * (1 - (brightness - 210) / 45));
-      }
-    }
-
-    ctx.putImageData(imageData, 0, 0);
-    img.src = canvas.toDataURL('image/png');
-    img.classList.add('bg-removed');
-  }
-
-  function processAllMockupImages() {
-    var mockupSrc = 'hero_image.KL8R_fkw.webp';
-    var imgs = document.querySelectorAll('img[src*="' + mockupSrc + '"]');
-    imgs.forEach(function (img) {
-      if (img.classList.contains('bg-removed')) return;
-      if (img.dataset.skipBgRemove === 'true') return;
-      if (img.complete && img.naturalWidth > 0) {
-        removeWhiteBg(img);
-      } else {
-        img.addEventListener('load', function onLoad() {
-          if (img.classList.contains('bg-removed')) return;
-          img.removeEventListener('load', onLoad);
-          removeWhiteBg(img);
-        });
-      }
-    });
-  }
-
-  setTimeout(processAllMockupImages, 500);
+  // Background removal is now handled via CSS mix-blend-mode: multiply
+  // No canvas processing needed — eliminates CPU overhead
 
   // --- Scroll Animations (IntersectionObserver) ---
   function initScrollAnimations() {
