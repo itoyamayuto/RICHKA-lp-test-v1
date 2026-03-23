@@ -424,13 +424,13 @@
       deviceIframe.src = iframeSrc;
     }
 
-    // Scale iframe to fit container
+    // Scale iframe to fit container width exactly
     requestAnimationFrame(function () {
       var screenRect = screen.getBoundingClientRect();
-      var scaleX = screenRect.width / info.w;
-      var scaleY = screenRect.height / info.h;
-      var scale = Math.min(scaleX, scaleY);
+      var scale = screenRect.width / info.w;
       deviceIframe.style.transform = 'scale(' + scale + ')';
+      // Set iframe height to fill the scaled screen area for scrolling
+      deviceIframe.style.height = Math.ceil(screenRect.height / scale) + 'px';
     });
   }
 

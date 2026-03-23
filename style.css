@@ -234,16 +234,19 @@ a {
   aspect-ratio: 393/852;
   border-radius: 30px;
   overflow: hidden;
+  overflow-y: auto;
   position: relative;
   background: #fff;
 }
 
 [data-device="iphone"] .device-mock__iframe {
   width: 393px;
-  height: 852px;
+  height: 6000px;
   transform-origin: 0 0;
-  transform: scale(calc(266 / 393));
   border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 [data-device="iphone"] .device-mock__camera,
@@ -282,14 +285,19 @@ a {
   max-height: 70vh;
   border-radius: 4px;
   overflow: hidden;
+  overflow-y: auto;
   background: #fff;
+  position: relative;
 }
 
 [data-device="ipad"] .device-mock__iframe {
   width: 834px;
-  height: 1194px;
+  height: 6000px;
   transform-origin: 0 0;
   border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 [data-device="ipad"] .device-mock__notch,
@@ -330,14 +338,19 @@ a {
   border: 2px solid #333;
   border-top: none;
   overflow: hidden;
+  overflow-y: auto;
   background: #fff;
+  position: relative;
 }
 
 [data-device="macbook"] .device-mock__iframe {
   width: 1512px;
-  height: 982px;
+  height: 6000px;
   transform-origin: 0 0;
   border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 [data-device="macbook"] .device-mock__keyboard {
