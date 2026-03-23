@@ -235,8 +235,13 @@ a {
   border-radius: 30px;
   overflow: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
   position: relative;
   background: #fff;
+}
+
+[data-device="iphone"] .device-mock__screen::-webkit-scrollbar {
+  display: none;
 }
 
 [data-device="iphone"] .device-mock__iframe {
@@ -286,8 +291,13 @@ a {
   border-radius: 4px;
   overflow: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
   background: #fff;
   position: relative;
+}
+
+[data-device="ipad"] .device-mock__screen::-webkit-scrollbar {
+  display: none;
 }
 
 [data-device="ipad"] .device-mock__iframe {
@@ -339,8 +349,13 @@ a {
   border-top: none;
   overflow: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
   background: #fff;
   position: relative;
+}
+
+[data-device="macbook"] .device-mock__screen::-webkit-scrollbar {
+  display: none;
 }
 
 [data-device="macbook"] .device-mock__iframe {
