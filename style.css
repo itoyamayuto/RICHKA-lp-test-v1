@@ -82,11 +82,337 @@ a {
 }
 
 /* ============================================
+   0.3 Device Preview Navigation (topmost bar)
+   ============================================ */
+:root {
+  --device-nav-height: 36px;
+}
+
+.device-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  background: #18181b;
+  height: var(--device-nav-height);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+}
+
+.device-nav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  height: 28px;
+}
+
+.device-nav__btn:hover {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.06);
+}
+
+.device-nav__btn.is-active {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+
+.device-nav__btn svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.device-nav__btn.is-active svg {
+  opacity: 1;
+}
+
+.device-nav__sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 6px;
+}
+
+/* Shift palette nav down */
+.palette-nav {
+  top: var(--device-nav-height);
+}
+
+/* Shift showcase nav down */
+.showcase-nav {
+  top: calc(var(--device-nav-height) + var(--palette-nav-height));
+}
+
+/* Update nav-height to include device nav */
+:root {
+  --nav-height: calc(var(--device-nav-height) + var(--palette-nav-height) + var(--pattern-nav-height));
+}
+
+/* Progress bar position */
+.lp-progress {
+  top: var(--nav-height);
+}
+
+/* ============================================
+   0.35 Device Mock Frame
+   ============================================ */
+.device-mock {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: #0e0e11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 20px;
+}
+
+.device-mock__frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- iPhone Mock --- */
+[data-device="iphone"] .device-mock__frame {
+  width: 290px;
+  background: #1a1a1e;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow:
+    0 0 0 2px #333,
+    0 0 0 4px #1a1a1e,
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+[data-device="iphone"] .device-mock__notch {
+  display: block;
+  width: 120px;
+  height: 28px;
+  background: #1a1a1e;
+  border-radius: 0 0 18px 18px;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+[data-device="iphone"] .device-mock__notch::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #0a0a0c;
+  border-radius: 50%;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+}
+
+[data-device="iphone"] .device-mock__screen {
+  width: 100%;
+  aspect-ratio: 393/852;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+[data-device="iphone"] .device-mock__iframe {
+  width: 393px;
+  height: 852px;
+  transform-origin: 0 0;
+  transform: scale(calc(266 / 393));
+  border: none;
+}
+
+[data-device="iphone"] .device-mock__camera,
+[data-device="iphone"] .device-mock__bezel-top,
+[data-device="iphone"] .device-mock__keyboard {
+  display: none;
+}
+
+/* --- iPad Mock --- */
+[data-device="ipad"] .device-mock__frame {
+  width: min(580px, 80vw);
+  background: #1a1a1e;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow:
+    0 0 0 2px #333,
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+[data-device="ipad"] .device-mock__camera {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #2a2a30;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+[data-device="ipad"] .device-mock__screen {
+  width: 100%;
+  aspect-ratio: 834/1194;
+  max-height: 70vh;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+[data-device="ipad"] .device-mock__iframe {
+  width: 834px;
+  height: 1194px;
+  transform-origin: 0 0;
+  border: none;
+}
+
+[data-device="ipad"] .device-mock__notch,
+[data-device="ipad"] .device-mock__bezel-top,
+[data-device="ipad"] .device-mock__keyboard {
+  display: none;
+}
+
+/* --- MacBook Mock --- */
+[data-device="macbook"] .device-mock__frame {
+  width: min(900px, 90vw);
+}
+
+[data-device="macbook"] .device-mock__bezel-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 24px;
+  background: #1a1a1e;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid #333;
+  border-bottom: none;
+}
+
+[data-device="macbook"] .device-mock__webcam {
+  width: 6px;
+  height: 6px;
+  background: #2a2a30;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #444;
+}
+
+[data-device="macbook"] .device-mock__screen {
+  width: 100%;
+  aspect-ratio: 1512/982;
+  max-height: 60vh;
+  border: 2px solid #333;
+  border-top: none;
+  overflow: hidden;
+  background: #fff;
+}
+
+[data-device="macbook"] .device-mock__iframe {
+  width: 1512px;
+  height: 982px;
+  transform-origin: 0 0;
+  border: none;
+}
+
+[data-device="macbook"] .device-mock__keyboard {
+  display: block;
+  width: 108%;
+  height: 14px;
+  background: linear-gradient(180deg, #2a2a2e 0%, #1a1a1e 100%);
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+[data-device="macbook"] .device-mock__keyboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 4px;
+  background: #333;
+  border-radius: 0 0 4px 4px;
+}
+
+[data-device="macbook"] .device-mock__trackpad {
+  display: none;
+}
+
+[data-device="macbook"] .device-mock__notch,
+[data-device="macbook"] .device-mock__camera {
+  display: none;
+}
+
+/* Default: hide all mock parts */
+.device-mock__notch,
+.device-mock__camera,
+.device-mock__bezel-top,
+.device-mock__keyboard {
+  display: none;
+}
+
+/* Mock label */
+.device-mock__label {
+  color: rgba(255,255,255,0.4);
+  font-size: 11px;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-top: 12px;
+  letter-spacing: 0.08em;
+}
+
+/* When device preview is active, hide main content */
+body[data-device="iphone"] #lp-body,
+body[data-device="ipad"] #lp-body,
+body[data-device="macbook"] #lp-body {
+  display: none;
+}
+
+body[data-device="iphone"] .hero,
+body[data-device="ipad"] .hero,
+body[data-device="macbook"] .hero {
+  display: none !important;
+}
+
+body[data-device="iphone"] .lp-progress,
+body[data-device="ipad"] .lp-progress,
+body[data-device="macbook"] .lp-progress {
+  display: none;
+}
+
+/* ============================================
    0.5 Palette Navigation (upper bar)
    ============================================ */
 .palette-nav {
   position: fixed;
-  top: 0;
+  top: var(--device-nav-height);
   left: 0;
   right: 0;
   z-index: 1001;
@@ -155,7 +481,7 @@ a {
    ============================================ */
 .showcase-nav {
   position: fixed;
-  top: var(--palette-nav-height);
+  top: calc(var(--device-nav-height) + var(--palette-nav-height));
   left: 0;
   right: 0;
   z-index: 1000;

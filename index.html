@@ -9,7 +9,54 @@
   <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=M+PLUS+Rounded+1c:wght@700&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@400;700&family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-palette="richka">
+<body data-palette="richka" data-device="none">
+
+<!-- ============================================
+     Device Preview Bar (topmost)
+     ============================================ -->
+<nav class="device-nav" aria-label="デバイスプレビュー切り替え">
+  <div class="device-nav__inner">
+    <button class="device-nav__btn is-active" data-device="none" title="実寸表示">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      実寸
+    </button>
+    <span class="device-nav__sep"></span>
+    <button class="device-nav__btn" data-device="iphone" title="iPhone 15 Pro (393×852)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      iPhone
+    </button>
+    <button class="device-nav__btn" data-device="ipad" title="iPad Pro 11&quot; (834×1194)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+      iPad
+    </button>
+    <button class="device-nav__btn" data-device="macbook" title="MacBook Pro 14&quot; (1512×982)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M1 17h22l-2 4H3l-2-4z"/></svg>
+      MacBook
+    </button>
+  </div>
+</nav>
+
+<!-- Device mock container -->
+<div class="device-mock" id="device-mock" style="display:none">
+  <div class="device-mock__frame" id="device-frame">
+    <!-- iPhone notch -->
+    <div class="device-mock__notch" id="device-notch"></div>
+    <!-- iPad camera -->
+    <div class="device-mock__camera" id="device-camera"></div>
+    <!-- MacBook screen bezel -->
+    <div class="device-mock__bezel-top" id="device-bezel-top">
+      <div class="device-mock__webcam"></div>
+    </div>
+    <div class="device-mock__screen">
+      <iframe id="device-iframe" class="device-mock__iframe" src="" frameborder="0"></iframe>
+    </div>
+    <!-- MacBook bottom -->
+    <div class="device-mock__keyboard" id="device-keyboard">
+      <div class="device-mock__trackpad"></div>
+    </div>
+  </div>
+  <p class="device-mock__label" id="device-label"></p>
+</div>
 
 <!-- Scroll progress bar -->
 <div class="lp-progress" id="lp-progress" aria-hidden="true"></div>

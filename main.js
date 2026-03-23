@@ -362,4 +362,131 @@
     }, 100);
   }
 
+  // --- Device Preview Switching ---
+  var deviceBtns = document.querySelectorAll('.device-nav__btn');
+  var deviceMock = document.getElementById('device-mock');
+  var deviceIframe = document.getElementById('device-iframe');
+  var deviceLabel = document.getElementById('device-label');
+
+  var deviceInfo = {
+    iphone: { label: 'iPhone 15 Pro — 393 × 852', w: 393, h: 852 },
+    ipad: { label: 'iPad Pro 11″ — 834 × 1194', w: 834, h: 1194 },
+    macbook: { label: 'MacBook Pro 14″ — 1512 × 982', w: 1512, h: 982 }
+  };
+
+  function switchDevice(device) {
+    document.body.setAttribute('data-device', device);
+
+    // Update active button
+    deviceBtns.forEach(function (btn) {
+      btn.classList.toggle('is-active', btn.dataset.device === device);
+    });
+
+    if (device === 'none') {
+      // Show normal page
+      deviceMock.style.display = 'none';
+      deviceIframe.src = '';
+      // Restore hero visibility
+      sections.forEach(function (s) { s.style.display = 'none'; });
+      var activeTab = document.querySelector('.showcase-nav__tab.is-active');
+      if (activeTab) {
+        var target = document.getElementById('pattern-' + activeTab.dataset.pattern);
+        if (target) {
+          target.style.display = 'block';
+          restartAnimations(target);
+        }
+      }
+      document.getElementById('lp-body').style.display = 'block';
+      return;
+    }
+
+    // Show mock frame
+    var info = deviceInfo[device];
+    deviceMock.style.display = 'flex';
+    deviceLabel.textContent = info.label;
+
+    // Scale iframe to fit screen
+    var screen = deviceMock.querySelector('.device-mock__screen');
+    deviceIframe.style.width = info.w + 'px';
+    deviceIframe.style.height = info.h + 'px';
+
+    // Set iframe src (same page, pass palette and pattern)
+    var activePalette = document.body.getAttribute('data-palette') || 'richka';
+    var activePattern = (document.querySelector('.showcase-nav__tab.is-active') || {}).dataset;
+    var pattern = activePattern ? activePattern.pattern : 'a';
+
+    // Build URL with hash to pass state
+    var iframeSrc = window.location.pathname + '?embed=1&palette=' + activePalette + '&pattern=' + pattern;
+    if (deviceIframe.src.indexOf(iframeSrc) === -1) {
+      deviceIframe.src = iframeSrc;
+    }
+
+    // Scale iframe to fit container
+    requestAnimationFrame(function () {
+      var screenRect = screen.getBoundingClientRect();
+      var scaleX = screenRect.width / info.w;
+      var scaleY = screenRect.height / info.h;
+      var scale = Math.min(scaleX, scaleY);
+      deviceIframe.style.transform = 'scale(' + scale + ')';
+    });
+  }
+
+  deviceBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      switchDevice(btn.dataset.device);
+    });
+  });
+
+  // If loaded as embed inside iframe, apply params and hide nav
+  if (window.location.search.indexOf('embed=1') !== -1) {
+    var params = new URLSearchParams(window.location.search);
+    var embedPalette = params.get('palette') || 'richka';
+    var embedPattern = params.get('pattern') || 'a';
+
+    document.body.setAttribute('data-palette', embedPalette);
+    document.querySelector('.device-nav').style.display = 'none';
+    document.querySelector('.palette-nav').style.display = 'none';
+    document.querySelector('.showcase-nav').style.display = 'none';
+    document.querySelector('.lp-progress').style.display = 'none';
+
+    // Reset nav-height for embedded view
+    document.documentElement.style.setProperty('--nav-height', '0px');
+    document.documentElement.style.setProperty('--device-nav-height', '0px');
+
+    // Show only the target pattern
+    sections.forEach(function (s) { s.style.display = 'none'; });
+    var embedSection = document.getElementById('pattern-' + embedPattern);
+    if (embedSection) {
+      embedSection.style.display = 'block';
+      embedSection.style.paddingTop = '0';
+      restartAnimations(embedSection);
+    }
+
+    // Update palette accent
+    var accentColors = {
+      richka: '#FF6450', trust: '#c4a265', safe: '#e67e22',
+      pop: '#e8344e', luxury: '#d4af37', coral: '#FF6450', urgent: '#cc0000'
+    };
+    document.documentElement.style.setProperty('--palette-accent', accentColors[embedPalette] || '#FF6450');
+  }
+
+  // Sync palette/pattern changes to iframe
+  paletteTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var device = document.body.getAttribute('data-device');
+      if (device && device !== 'none') {
+        switchDevice(device);
+      }
+    });
+  });
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var device = document.body.getAttribute('data-device');
+      if (device && device !== 'none') {
+        setTimeout(function () { switchDevice(device); }, 50);
+      }
+    });
+  });
+
 })();
