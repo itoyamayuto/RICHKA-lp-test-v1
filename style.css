@@ -75,9 +75,9 @@ a {
   --radius-circle: 50%;
 
   /* Nav */
-  --nav-height: 96px;
   --palette-nav-height: 44px;
   --pattern-nav-height: 52px;
+  --nav-height: calc(var(--palette-nav-height) + var(--pattern-nav-height));
   --palette-accent: #FF6450;
 }
 
@@ -163,7 +163,7 @@ a {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  height: var(--nav-height);
+  height: var(--pattern-nav-height);
 }
 
 .showcase-nav__inner {
@@ -1937,10 +1937,6 @@ a:focus-visible, button:focus-visible {
    18. Responsive: Desktop (1024px+)
    ============================================ */
 @media (min-width: 1024px) {
-  :root {
-    --nav-height: 96px;
-  }
-
   .showcase-nav__inner {
     justify-content: center;
     gap: 4px;
@@ -2266,11 +2262,23 @@ a:focus-visible, button:focus-visible {
   color: var(--richka-coral);
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
 }
 
 .lp-numbers__value .unit {
-  font-size: 0.4em;
+  font-size: 0.35em;
   color: var(--richka-coral-light);
+  margin-left: 2px;
+}
+
+.lp-numbers__value .unit-plus {
+  font-size: 0.5em;
+  color: var(--richka-coral-light);
+  margin-left: 1px;
 }
 
 .lp-numbers__label {
