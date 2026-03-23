@@ -1135,7 +1135,7 @@ img.bg-removed {
 }
 
 .hero--e .hero__problems-section {
-  padding: var(--space-lg) var(--space-md) var(--space-md);
+  padding: var(--space-2xl) var(--space-md) var(--space-md);
   text-align: center;
 }
 
@@ -1938,7 +1938,7 @@ a:focus-visible, button:focus-visible {
    ============================================ */
 @media (min-width: 1024px) {
   :root {
-    --nav-height: 56px;
+    --nav-height: 96px;
   }
 
   .showcase-nav__inner {
@@ -3701,4 +3701,262 @@ body[data-palette="luxury"] .hero__cta { animation-name: ctaPulseLuxury; }
 @keyframes ctaPulseLuxury {
   0%, 100% { box-shadow: 0 4px 24px rgba(212,175,55,0.35), 0 0 0 0 rgba(212,175,55,0.2); }
   50% { box-shadow: 0 4px 24px rgba(212,175,55,0.35), 0 0 0 8px rgba(212,175,55,0); }
+}
+
+/* ============================================
+   PC Display Improvements (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  /* --- 共通: max-width拡大 + 余白最適化 --- */
+  .hero__inner {
+    max-width: 1200px;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  /* CTA: PC幅で適切なサイズに */
+  .hero__cta {
+    max-width: 400px;
+  }
+
+  .hero-a__cta-area .hero__cta {
+    width: auto;
+    display: inline-block;
+  }
+
+  /* バッジ行の余白調整 */
+  .hero__badge-row {
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  /* --- Pattern A: PC 2カラムレイアウト最適化 --- */
+  .hero--a .hero-a__top {
+    min-height: 480px;
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .hero--a .hero-a__bottom {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .hero--a .hero-a__cta-area {
+    flex-shrink: 0;
+  }
+
+  /* --- Pattern B: PC 2カラム化 --- */
+  .hero--b .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero--b .hero__empathy-copy {
+    max-width: 800px;
+  }
+
+  .hero--b .hero__reassurance {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Pattern C: PC 横並び化 --- */
+  .hero--c .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 960px;
+  }
+
+  .hero--c .hero__celebrity-photo-wrap {
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .hero--c .hero__celebrity-photo {
+    max-width: 320px;
+  }
+
+  .hero--c .hero__campaign-title .ja {
+    font-size: clamp(40px, 5vw, 64px);
+  }
+
+  .hero--c .hero__brand-message {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Pattern E: 見出し見切れ修正 + PC最適化 --- */
+  .hero--e .hero__problems-section {
+    padding-top: var(--space-xl);
+  }
+
+  .hero--e .hero__problems-title {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero--e .hero__problem-list {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero--e .hero__problem-item {
+    max-width: none;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .hero--e .hero__solution-section {
+    padding: var(--space-xl) var(--space-2xl);
+    gap: var(--space-2xl);
+  }
+
+  /* --- Pattern F: PC 横並びレイアウト --- */
+  .hero--f .hero__inner {
+    text-align: center;
+  }
+
+  .hero--f .hero__photo-f img {
+    max-width: 560px;
+  }
+
+  .hero--f .hero__desc-f {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Pattern G: PC エディトリアル最適化 --- */
+  .hero--g .hero__editorial-content {
+    min-height: 400px;
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  /* --- Pattern H: PC バランス調整 --- */
+  .hero--h .hero__h-layout {
+    justify-content: center;
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .hero--h .hero__product-area {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero--h .hero__speech-bubble {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Pattern I: PC 横並び最適化 --- */
+  .hero--i .hero__scenes {
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .hero--i .hero__scene-photo {
+    width: 25%;
+    max-height: 360px;
+  }
+
+  .hero--i .hero__multi-copy {
+    min-width: 280px;
+  }
+
+  .hero--i .hero__follow-copy {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero--i .hero__badge-row--starburst {
+    gap: var(--space-xl);
+  }
+
+  /* --- Pattern J: PC中央寄せ最適化 --- */
+  .hero--j .hero__content-j {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero--j .hero__nav-j {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-xl);
+  }
+}
+
+/* ============================================
+   Extra-wide Desktop (1280px+)
+   ============================================ */
+@media (min-width: 1280px) {
+  .hero__inner {
+    max-width: 1280px;
+  }
+
+  /* Pattern A: 2カラムをさらに広く */
+  .hero--a .hero-a__pc-visual {
+    width: 52%;
+    max-width: 680px;
+    right: 0;
+  }
+
+  .hero--a .hero-a__top {
+    min-height: 520px;
+  }
+
+  /* Pattern B: プロダクト画像を大きく */
+  .hero--b .hero__product-visual img {
+    max-width: 720px;
+  }
+
+  /* Pattern E: solution を広く */
+  .hero--e .hero__solution-section {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .hero--e .hero__photo-e img {
+    max-width: 480px;
+  }
+
+  /* Pattern F: 数字エリアの装飾円を拡大 */
+  .hero--f .hero__number-area::before {
+    width: 360px;
+    height: 360px;
+  }
+
+  .hero--f .hero__number-area::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Pattern G: エディトリアルコンテンツを広く */
+  .hero--g .hero__photo-g {
+    max-width: 500px;
+  }
+
+  .hero--g .hero__vertical-copy-g {
+    font-size: clamp(28px, 3vw, 40px);
+  }
+
+  /* Pattern H: 写真とコピーのバランス */
+  .hero--h .hero__emotion-photo-wrap {
+    max-width: 380px;
+  }
+
+  .hero--h .hero__vertical-copy-h {
+    font-size: clamp(28px, 3vw, 44px);
+    max-height: 440px;
+  }
+
+  /* Pattern I: シーン写真を大きく */
+  .hero--i .hero__scene-photo {
+    width: 28%;
+  }
 }
