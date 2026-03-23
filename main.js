@@ -172,7 +172,7 @@
     if (!container) return;
     container.innerHTML = '';
 
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 10; i++) {
       var p = document.createElement('div');
       p.classList.add('particle');
       p.style.left = Math.random() * 100 + '%';
@@ -220,7 +220,9 @@
       if (img.complete && img.naturalWidth > 0) {
         removeWhiteBg(img);
       } else {
-        img.addEventListener('load', function () {
+        img.addEventListener('load', function onLoad() {
+          if (img.classList.contains('bg-removed')) return;
+          img.removeEventListener('load', onLoad);
           removeWhiteBg(img);
         });
       }
