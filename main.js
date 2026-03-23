@@ -390,10 +390,13 @@
       sections.forEach(function (s) { s.style.display = 'none'; });
       var activeTab = document.querySelector('.showcase-nav__tab.is-active');
       if (activeTab) {
-        var target = document.getElementById('pattern-' + activeTab.dataset.pattern);
+        var patternId = activeTab.dataset.pattern;
+        var target = document.getElementById('pattern-' + patternId);
         if (target) {
           target.style.display = 'block';
           restartAnimations(target);
+          // Restart counter for Pattern F
+          if (patternId === 'f') startCountUp(target);
         }
       }
       document.getElementById('lp-body').style.display = 'block';
@@ -460,7 +463,10 @@
       embedSection.style.display = 'block';
       embedSection.style.paddingTop = '0';
       restartAnimations(embedSection);
+      if (embedPattern === 'f') startCountUp(embedSection);
     }
+    // Hide LP body in embed mode
+    document.getElementById('lp-body').style.display = 'none';
 
     // Update palette accent
     var accentColors = {
@@ -471,21 +477,27 @@
   }
 
   // Sync palette/pattern changes to iframe
+  function refreshDeviceIfActive() {
+    var device = document.body.getAttribute('data-device');
+    if (device && device !== 'none' && deviceMock.style.display !== 'none') {
+      // Only refresh the iframe content, don't re-run switchDevice
+      var activePalette = document.body.getAttribute('data-palette') || 'richka';
+      var activeTab = document.querySelector('.showcase-nav__tab.is-active');
+      var pattern = activeTab ? activeTab.dataset.pattern : 'a';
+      var iframeSrc = window.location.pathname + '?embed=1&palette=' + activePalette + '&pattern=' + pattern;
+      deviceIframe.src = iframeSrc;
+    }
+  }
+
   paletteTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      var device = document.body.getAttribute('data-device');
-      if (device && device !== 'none') {
-        switchDevice(device);
-      }
+      setTimeout(refreshDeviceIfActive, 100);
     });
   });
 
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      var device = document.body.getAttribute('data-device');
-      if (device && device !== 'none') {
-        setTimeout(function () { switchDevice(device); }, 50);
-      }
+      setTimeout(refreshDeviceIfActive, 100);
     });
   });
 
