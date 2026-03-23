@@ -465,8 +465,8 @@
       restartAnimations(embedSection);
       if (embedPattern === 'f') startCountUp(embedSection);
     }
-    // Hide LP body in embed mode
-    document.getElementById('lp-body').style.display = 'none';
+    // Show LP body in embed mode (full page scroll)
+    document.getElementById('lp-body').style.display = 'block';
 
     // Update palette accent
     var accentColors = {
