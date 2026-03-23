@@ -184,8 +184,55 @@
     }
   }
 
-  // Background removal is now handled via CSS mix-blend-mode: multiply
-  // No canvas processing needed — eliminates CPU overhead
+  // --- Remove white background from PC mockup images ---
+  function removeWhiteBg(img) {
+    if (img.classList.contains('bg-removed')) return;
+    img.classList.add('bg-removed');
+
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    ctx.drawImage(img, 0, 0);
+
+    try {
+      var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var data = imageData.data;
+
+      for (var i = 0; i < data.length; i += 4) {
+        var r = data[i], g = data[i + 1], b = data[i + 2];
+        if (r > 240 && g > 240 && b > 240) {
+          data[i + 3] = 0;
+        } else if (r > 220 && g > 220 && b > 220) {
+          var avg = (r + g + b) / 3;
+          data[i + 3] = Math.round(255 * (1 - (avg - 220) / 35));
+        }
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+      img.src = canvas.toDataURL('image/png');
+    } catch (e) {
+      // CORS or other canvas error — fall back silently
+    }
+  }
+
+  function processAllMockupImages() {
+    var imgs = document.querySelectorAll('img[src*="hero_image.KL8R_fkw.webp"]');
+    imgs.forEach(function (img) {
+      if (img.classList.contains('bg-removed')) return;
+      if (img.dataset.skipBgRemove === 'true') return;
+      if (img.complete && img.naturalWidth > 0) {
+        removeWhiteBg(img);
+      } else {
+        img.addEventListener('load', function onLoad() {
+          img.removeEventListener('load', onLoad);
+          removeWhiteBg(img);
+        });
+      }
+    });
+  }
+
+  setTimeout(processAllMockupImages, 300);
 
   // --- Scroll Animations (IntersectionObserver) ---
   function initScrollAnimations() {

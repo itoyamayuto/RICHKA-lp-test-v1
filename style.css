@@ -4313,21 +4313,10 @@ body[data-palette="luxury"] .hero__cta { animation-name: ctaPulseLuxury; }
    Round 3: FV Design Refinements (All Patterns)
    ============================================ */
 
-/* --- R3: PC画像の白背景をCSSで透過（Canvas処理廃止） --- */
-.hero-a__pc-img,
-.hero--b .hero__product-visual img,
-.hero--e .hero__photo-e img,
-.hero--f .hero__photo-f img,
-.hero--g .hero__photo-g,
-.hero--h .hero__product-img {
-  mix-blend-mode: multiply;
-}
-
-/* bg-removed class no longer needed */
+/* --- R3: PC画像の白背景はCanvas処理で透過 --- */
 img.bg-removed {
-  filter: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
   box-shadow: none;
-  mix-blend-mode: multiply;
 }
 
 /* --- R3-A: Pattern A 改善 --- */
@@ -4604,20 +4593,6 @@ img.bg-removed {
 /* 6. バッジ行追加用（J用） */
 .hero--j .hero__content-j .hero__cta-wrap {
   margin-top: var(--space-md);
-}
-
-/* --- R3: Dark palette fixes for mix-blend-mode --- */
-body[data-palette="trust"] .hero-a__pc-img,
-body[data-palette="luxury"] .hero-a__pc-img,
-body[data-palette="trust"] .hero--b .hero__product-visual img,
-body[data-palette="luxury"] .hero--b .hero__product-visual img,
-body[data-palette="trust"] .hero--e .hero__photo-e img,
-body[data-palette="luxury"] .hero--e .hero__photo-e img,
-body[data-palette="trust"] .hero--f .hero__photo-f img,
-body[data-palette="luxury"] .hero--f .hero__photo-f img,
-body[data-palette="trust"] .hero--g .hero__photo-g,
-body[data-palette="luxury"] .hero--g .hero__photo-g {
-  mix-blend-mode: screen;
 }
 
 /* Trust/Luxury: Pattern I multi-copy on dark */
